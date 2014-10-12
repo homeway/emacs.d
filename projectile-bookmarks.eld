@@ -1,0 +1,1 @@
+("~/.emacs.d/" "~/Documents/ebook/github/hotmoon-docs/")
