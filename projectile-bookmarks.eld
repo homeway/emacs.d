@@ -1,1 +1,1 @@
-("~/.emacs.d/" "~/Documents/ebook/github/hotmoon-docs/")
+("~/.emacs.d/" "~/Dropbox/private/" "~/Documents/ebook/docs:github/hotmoon-docs/" "~/erlang/workspace/trainings/frequency/" "~/Dropbox/docs/" "~/Documents/ebook/github/pages/" "~/Documents/ebook/github/hotmoon-docs/")
