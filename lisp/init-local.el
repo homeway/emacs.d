@@ -1,7 +1,21 @@
+;; ------------------------------
 ;; 按项目的方式管理文件和目录 projectile
 ;; 默认全局使用
 (require 'projectile)
 (projectile-global-mode)
+
+;; ------------------------------
+;; erlang折叠代码
+(add-hook 'erlang-mode-hook 'my-erlang-mode-hook)
+(defun my-erlang-mode-hook ()
+  (setq hs-special-modes-alist
+        (cons '(erlang-mode
+                "^\\([a-z][a-zA-Z0-9_]*\\|'[^\n']*[^\\]'\\)\\s *(" nil "%"
+                erlang-end-of-clause) hs-special-modes-alist))
+  (hs-minor-mode 1)
+  (local-set-key [?\M-s] 'hs-toggle-hiding)
+  (local-set-key [?\M-h] 'hs-hide-all)
+  (local-set-key [?\M-u] 'hs-show-all))
 
 ;; ------------------------------
 ;; 使用xelatex从org生成PDF的模板
@@ -60,6 +74,7 @@
 \\newcommand\\fontnamemono{Courier New}%等宽字体
 \\newfontinstance\\MONO{\\fontnamemono}
 \\newcommand{\\mono}[1]{{\\MONO #1}}
+\\renewcommand{\\contentsname}{目录}  % 将Contents改为目录
 \\setCJKmainfont[Scale=0.9]{STSong}%中文字体
 \\setCJKmonofont[Scale=0.9]{STSong}
 \\hypersetup{unicode=true}

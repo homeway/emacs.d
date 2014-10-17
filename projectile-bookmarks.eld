@@ -1,1 +1,0 @@
-("~/Documents/ebook/solutions/yaojiao_open/" "~/.emacs.d/" "~/Dropbox/docs/" "~/Documents/ebook/docs:github/hotmoon-docs/" "~/Dropbox/private/" "~/erlang/workspace/trainings/frequency/" "~/Documents/ebook/github/pages/" "~/Documents/ebook/github/hotmoon-docs/")
