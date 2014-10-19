@@ -25,6 +25,10 @@
 (setq org-startup-indented t)
 
 ;; -----------------------------------------------------------------------------
+;; 配置erlang下的header信息
+(setq user-mail-address "homeway.xue@gmail.com")
+
+;; -----------------------------------------------------------------------------
 ;; 在org文件中支持语法高亮
 (setq org-src-fontify-natively t)
 
