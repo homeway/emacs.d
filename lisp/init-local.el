@@ -67,6 +67,9 @@
 \\usepackage{natbib}
 \\usepackage{fancyhdr}
 \\usepackage[xetex,colorlinks=true,CJKbookmarks=true,linkcolor=blue,urlcolor=blue,menucolor=blue]{hyperref}
+\%%%% 设置正文字体
+\\setCJKmainfont[Scale=0.9]{STSong}%中文字体
+\\setCJKmonofont[Scale=0.9]{STSong}
 \\usepackage{fontspec,xunicode,xltxtra}
 \\setmainfont[BoldFont=Courier]{Courier}
 \\setsansfont[BoldFont=Courier]{Courier}
@@ -75,22 +78,22 @@
 \\newfontinstance\\MONO{\\fontnamemono}
 \\newcommand{\\mono}[1]{{\\MONO #1}}
 \\renewcommand{\\contentsname}{目录}  % 将Contents改为目录
+\%%%% 设置章节标题的字体
 \\usepackage{titlesec}
 \\newfontfamily{\\H}{Yuanti SC}
-\\titleformat*{\\section}{\\LARGE\\bfseries}
+\\titleformat*{\\section}{\\LARGE\\bfseries\\H}
 \\titleformat*{\\subsection}{\\Large\\bfseries}
 \\titleformat*{\\subsubsection}{\\large\\bfseries}
 \\titleformat*{\\paragraph}{\\large\\bfseries}
 \\titleformat*{\\subparagraph}{\\large\\bfseries}
-\\setCJKmainfont[Scale=0.9]{STSong}%中文字体
-\\setCJKmonofont[Scale=0.9]{STSong}
 \\hypersetup{unicode=true}
 \\geometry{a4paper, textwidth=6.5in, textheight=10in,marginparsep=7pt, marginparwidth=.6in}
-\\punctstyle{kaiming}
+\%punctstyle{kaiming}
 \\title{}
+\\fancyhf{} %清空页眉页脚
 \\fancyfoot[C]{\\bfseries\\thepage}
-\\chead{\\MakeUppercase\\sectionmark}
-\\pagestyle{fancy}
+\%chead{\\MakeUppercase\\sectionmark}
+\%pagestyle{fancy}
 \\tolerance=1000
 \%%%% 段落首行缩进两个字 %%%%
 \\makeatletter
