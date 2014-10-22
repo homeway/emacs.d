@@ -33,3 +33,9 @@
 (setq org-src-fontify-natively t)
 
 (provide 'init-preload-local)
+
+;; -----------------------------------------------------------------------------
+;; 80列提示
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(add-hook 'after-change-major-mode-hook 'fci-mode)
