@@ -44,7 +44,7 @@
 ;; 需要在org文件中增加 #+LATEX_CLASS: pdf
 (add-to-list 'org-export-latex-classes
              '("pdf"
-               "\\documentclass[10pt,a4paper,titlepage]{article}
+               "\\documentclass[12pt,a4paper,titlepage]{article}
 \\usepackage{graphicx}
 \\usepackage{xcolor}
 \\usepackage{xeCJK}
@@ -75,6 +75,13 @@
 \\newfontinstance\\MONO{\\fontnamemono}
 \\newcommand{\\mono}[1]{{\\MONO #1}}
 \\renewcommand{\\contentsname}{目录}  % 将Contents改为目录
+\\usepackage{titlesec}
+\\newfontfamily{\\H}{Yuanti SC}
+\\titleformat*{\\section}{\\LARGE\\bfseries}
+\\titleformat*{\\subsection}{\\Large\\bfseries}
+\\titleformat*{\\subsubsection}{\\large\\bfseries}
+\\titleformat*{\\paragraph}{\\large\\bfseries}
+\\titleformat*{\\subparagraph}{\\large\\bfseries}
 \\setCJKmainfont[Scale=0.9]{STSong}%中文字体
 \\setCJKmonofont[Scale=0.9]{STSong}
 \\hypersetup{unicode=true}
