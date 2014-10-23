@@ -77,7 +77,24 @@
 \\newcommand\\fontnamemono{Courier New}%等宽字体
 \\newfontinstance\\MONO{\\fontnamemono}
 \\newcommand{\\mono}[1]{{\\MONO #1}}
+\%%%% 目录格式
 \\renewcommand{\\contentsname}{目录}  % 将Contents改为目录
+\\usepackage{titletoc}
+\\titlecontents{section}[10mm] % 标题左边距
+\{\\fontsize{11pt}{20pt}\\selectfont}
+\{\\contentslabel{3em}} % label与标题文字的距离
+\{}
+\{\\titlerule*{.}\\contentspage}
+\\titlecontents{subsection}[15mm]
+\{\\fontsize{12pt}{20pt}\\selectfont}
+\{\\contentslabel{3em}}
+\{}
+\{\\titlerule*{.}\\contentspage}
+\\titlecontents{subsubsection}[20mm]
+\{\\fontsize{12pt}{20pt}\\selectfont}
+\{\\contentslabel{4em}}
+\{}
+\{\\titlerule*{.}\\contentspage}
 \%%%% 设置章节标题的字体
 \\usepackage{titlesec}
 \\newfontfamily{\\H}{Yuanti SC}
@@ -87,7 +104,8 @@
 \\titleformat*{\\paragraph}{\\large\\bfseries}
 \\titleformat*{\\subparagraph}{\\large\\bfseries}
 \\hypersetup{unicode=true}
-\\geometry{a4paper, textwidth=6.5in, textheight=10in,marginparsep=7pt, marginparwidth=.6in}
+\\geometry{a4paper, textwidth=6.5in, textheight=10in,marginparsep=7pt,
+           \marginparwidth=.6in}
 \%punctstyle{kaiming}
 \\title{}
 \\fancyhf{} %清空页眉页脚
