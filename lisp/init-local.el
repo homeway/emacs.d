@@ -66,32 +66,33 @@
 \\usepackage{latexsym}
 \\usepackage{natbib}
 \\usepackage{fancyhdr}
-\\usepackage[xetex,colorlinks=true,CJKbookmarks=true,linkcolor=blue,urlcolor=blue,menucolor=blue]{hyperref}
 \%%%% 设置正文字体
 \\setCJKmainfont[Scale=0.9]{STSong}%中文字体
 \\setCJKmonofont[Scale=0.9]{STSong}
 \\usepackage{fontspec,xunicode,xltxtra}
-\\setmainfont[BoldFont=Courier]{Courier}
-\\setsansfont[BoldFont=Courier]{Courier}
+\\setmainfont{Courier New}
+\\setsansfont{Courier New}
 \\setmonofont{Courier New}
 \\newcommand\\fontnamemono{Courier New}%等宽字体
 \\newfontinstance\\MONO{\\fontnamemono}
 \\newcommand{\\mono}[1]{{\\MONO #1}}
 \%%%% 目录格式
+\\usepackage[xetex,colorlinks=true,CJKbookmarks=true,
+\linkcolor=blue,urlcolor=blue,menucolor=blue]{hyperref}
 \\renewcommand{\\contentsname}{目录}  % 将Contents改为目录
 \\usepackage{titletoc}
 \\titlecontents{section}[10mm] % 标题左边距
-\{\\fontsize{11pt}{20pt}\\selectfont}
+\{\\fontsize{13pt}{20pt}\\selectfont}
 \{\\contentslabel{3em}} % label与标题文字的距离
 \{}
-\{\\titlerule*{.}\\contentspage}
+\{\\titlerule*{}\\contentspage} % 右侧的填充和页码
 \\titlecontents{subsection}[15mm]
-\{\\fontsize{12pt}{20pt}\\selectfont}
+\{\\fontsize{11pt}{20pt}\\selectfont}
 \{\\contentslabel{3em}}
 \{}
 \{\\titlerule*{.}\\contentspage}
 \\titlecontents{subsubsection}[20mm]
-\{\\fontsize{12pt}{20pt}\\selectfont}
+\{\\fontsize{11pt}{20pt}\\selectfont}
 \{\\contentslabel{4em}}
 \{}
 \{\\titlerule*{.}\\contentspage}
