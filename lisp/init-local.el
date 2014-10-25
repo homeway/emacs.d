@@ -18,6 +18,12 @@
   (local-set-key [?\M-u] 'hs-show-all))
 
 ;; ------------------------------
+;; todo项定义
+(setq org-todo-keywords
+      '((sequence "TODO(t@)" "问题(r@)" "|" "完成(C/@)" "推迟(D@/!)" "取消(C@/!)" "解决(R@)")
+        (sequence "阿鑫(q/@)" "小炳(h/@)" "王鹏(w/@)"))
+
+;; ------------------------------
 ;; 使用xelatex从org生成PDF的模板
 (setq org-latex-to-pdf-process
 '("xelatex -interaction nonstopmode %f"
