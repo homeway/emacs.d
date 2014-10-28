@@ -16,16 +16,20 @@
   (local-set-key [?\M-s] 'hs-toggle-hiding)
   (local-set-key [?\M-h] 'hs-hide-all)
   (local-set-key [?\M-u] 'hs-show-all))
+;; ------------------------------
+;; nitrogen-mode
+(add-to-list 'load-path "/Users/homeway/erlang/research/nitrogen/support/nitrogen-mode")
+(require 'nitrogen-mode)
 
 ;; ------------------------------
 ;; todo项定义
 (setq org-todo-keywords
       '((sequence "TODO(t@)" "问题(r@)" "|" "完成(C/@)" "推迟(D@/!)" "取消(C@/!)" "解决(R@)")
-        (sequence "阿鑫(q/@)" "小炳(h/@)" "王鹏(w/@)"))
+        (sequence "阿鑫(q/@)" "小炳(h/@)" "王鹏(w/@)" "|")))
 
 ;; ------------------------------
 ;; 使用xelatex从org生成PDF的模板
-(setq org-latex-to-pdf-process
+(setq org-latex-pdf-process
 '("xelatex -interaction nonstopmode %f"
 "xelatex -interaction nonstopmode %f"))
 
@@ -44,11 +48,12 @@
           (lambda ()
             (if (member "REFTEX" org-todo-keywords-1)
                 (org-mode-article-modes))))
-(unless (boundp 'org-export-latex-classes)
-  (setq org-export-latex-classes nil))
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
 ;; 从org文件导出pdf的模板
 ;; 需要在org文件中增加 #+LATEX_CLASS: pdf
-(add-to-list 'org-export-latex-classes
+(require 'ox-latex)
+(add-to-list 'org-latex-classes
              '("pdf"
                "\\documentclass[12pt,a4paper,titlepage]{article}
 \\usepackage{graphicx}
@@ -134,5 +139,42 @@
 ("\\paragraph{%s}" . "\\paragraph*{%s}")
 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 (put 'upcase-region 'disabled nil)
+
+;; 导出Beamer的设置
+;; allow for export=>beamer by placing #+LaTeX_CLASS: beamer in org files
+;;-----------------------------------------------------------------------------
+(add-to-list 'org-latex-classes
+             ;; beamer class, for presentations
+             '("beamer"
+"\\documentclass[smaller, presentation]{beamer}
+\\usetheme{Warsaw}
+%\\usecolortheme{{{{beamercolortheme}}}}
+\\beamertemplateballitem
+\\setbeameroption{show notes}
+\\usepackage{graphicx}
+\\usepackage{tikz}
+\\usepackage{xcolor}
+\\usepackage{xeCJK}
+\\usepackage{amsmath}
+\\usepackage{lmodern}
+\\usepackage{fontspec,xunicode,xltxtra}
+\\usepackage{polyglossia}
+\\setmainfont{Times New Roman}
+\\setCJKmainfont{Yuanti SC}
+\\setCJKmonofont{Yuanti SC}
+\\usepackage{verbatim}
+\\usepackage{listings}
+\\institute{{{{beamerinstitute}}}}
+\\subject{{{{beamersubject}}}}"
+                              ("\\section{%s}" . "\\section*{%s}")
+                              ("\\begin{frame}[fragile]\\frametitle{%s}"
+                               "\\end{frame}"
+                               "\\begin{frame}[fragile]\\frametitle{%s}"
+                               "\\end{frame}")))
+
+(setq ps-paper-type 'a4
+      ps-font-size 16.0
+      ps-print-header nil
+            ps-landscape-mode nil)
 
 (provide 'init-local)
